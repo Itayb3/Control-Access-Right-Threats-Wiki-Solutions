@@ -7,35 +7,34 @@ To perform replication, domain controllers use the Directory Replication Service
 
 The DCSync Attack:
 Initial Access & Rights:
-
 Before an attacker can use DCSync, they must already have compromised an account with sufficient permissions. The permissions required for DCSync are Replicating Directory Changes and Replicating Directory Changes All.
 These rights are typically held by domain admins, enterprise admins, and the DC computer objects themselves.
-Mimikatz & DCSync:
 
+Mimikatz & DCSync:
 The popular tool Mimikatz has a feature to perform the DCSync attack. Once the attacker has the necessary rights, they can use Mimikatz to impersonate a DC and request the NTLM hashes of other users, including domain administrators.
 The attacker can then use these hashes for pass-the-hash attacks or attempt to crack them to retrieve the plaintext passwords.
-Stealthy & Evasive:
 
+Stealthy & Evasive:
 One of the reasons why DCSync is a particularly dangerous technique is that it does not require the attacker to have physical access or any direct interaction with the DC itself. They just need to have a foothold somewhere in the network with the appropriate permissions.
 Moreover, traditional defenses like monitoring security logs for NTLM or Kerberos password dumps might not detect this because DCSync uses legitimate AD replication requests. This makes the technique stealthy and evasive.
 
 Defense & Mitigation:
+
 Limit Permissions:
-
 Only give Replicating Directory Changes permissions to necessary accounts or groups. Reduce the number of privileged accounts in the domain.
+
 Monitor Replication Requests:
-
 Monitor unusual replication requests, especially from non-DC machines. Regular domain controllers have legitimate reasons to request this data, but a workstation or a server that's not a DC should never be making such a request.
+
 Protect & Monitor Privileged Accounts:
-
 Use tools like Microsoft’s Advanced Threat Analytics (ATA) to monitor for suspicious activities related to privileged accounts.
+
 Regular Audits:
-
 Periodically audit AD permissions to ensure that only the necessary accounts have replication rights.
+
 Use Strong Passwords:
-
 Even if an attacker gets the NTLM hash, a strong password makes it difficult for them to crack the hash to get the plaintext password.
-Multi-factor Authentication (MFA):
 
+Multi-factor Authentication (MFA):
 Implement MFA for sensitive operations and changes. This won't directly prevent DCSync but will make it more challenging for attackers to gain the necessary initial access.
 In essence, the DCSync attack is a reminder of how crucial it is to monitor and restrict Active Directory permissions carefully. Once attackers gain privileged access to AD, they can wield enormous power within the network.
