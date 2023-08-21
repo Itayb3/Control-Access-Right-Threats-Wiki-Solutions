@@ -6,6 +6,7 @@ Control Access Rights (CAR)
 in Active Directory (AD) is a pivotal aspect that cyber attackers often exploit to gain access, escalate privileges, and maintain persistence within an environment. Here's a list of known cyber attacks or techniques that utilize various Active Directory access rights:
 
 The threats i choose to study were:
+
 1.Kerberoasting
 
 2.Golden Ticket Attack
