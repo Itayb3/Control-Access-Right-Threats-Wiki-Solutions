@@ -6,6 +6,7 @@ $acl = Get-ACL -Path "AD:\$domainDN"
 $permissionGUIDs = @{
     "Replicating Directory Changes" = '1131f6ad-9c07-11d1-f79f-00c04fc2dcd2'
     "Replicating Directory Changes All" = '89e95b76-444d-4c62-991a-0facbeda640c'
+    "Replication Get-Changes In Filtered Set" = '89e95b76-444d-4c62-991a-0facbeda640c'
 }
 
 $permissionResults = @{}
