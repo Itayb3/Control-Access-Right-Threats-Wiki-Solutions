@@ -11,7 +11,7 @@ The threats i choose to study were:
 
 2.Golden Ticket Attack
 
-3.DCSync Attack
+3.DCSync Attack - Finished
 
 4.DCShadow Attack
 
