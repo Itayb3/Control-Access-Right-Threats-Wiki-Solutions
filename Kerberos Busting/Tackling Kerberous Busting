@@ -72,3 +72,9 @@ Sharing accounts can lead to many unwanted troubles.
 
 No Default Passwords:
 Any system or software defaults should be changed immediately upon installation or setup.
+
+3.SPNs Accounts:
+the next step would be checking for potential targets such as SPNs accounts.
+the reason these accounts are often targeted is because they often have high privileges and their passwords don't expire regularly.
+I would reccomend using the SPNs script included in the folder (Kerberos Busting - SPNs checking).
+Once you have the list i would 
