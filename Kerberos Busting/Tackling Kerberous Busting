@@ -48,8 +48,27 @@ This is a positive from a security perspective because NTLM  is significantly mo
 
 Complexity Requirements:
   
-  Uppercase Letters: At least one uppercase letter (A-Z).
-  Lowercase Letters: At least one lowercase letter (a-z).
-  Numbers: At least one digit (0-9).
-  Special Characters: At least one special character (e.g., !, @, #, $, %, etc.).
-  Avoid Common Words: Passwords shouldn't contain easily guessable words or patterns.
+Uppercase Letters: At least one uppercase letter (A-Z).
+Lowercase Letters: At least one lowercase letter (a-z).
+Numbers: At least one digit (0-9).
+Special Characters: At least one special character (e.g., !, @, #, $, %, etc.).
+Avoid Common Words: Passwords shouldn't contain easily guessable words or patterns.
+
+Password Expiry:
+For any high privilege accounts i would suggest changing password every 30 days.
+
+No Password Reuse: 
+Users should be discouraged or prevented from reusing previous passwords. 
+This can be enforced by maintaining a history of hashed passwords and checking new passwords against it.
+
+Account Lockouts: 
+After a certain number of failed login attempts (e.g., 5-10), temporarily lock out the account to prevent brute force attacks. 
+However, this must be balanced to prevent denial-of-service attacks via account lockouts.
+
+No Shared Accounts: 
+Important accounts, especially those with elevated privileges, should never be shared among multiple users!
+Every user should have a distinct login.
+Sharing accounts can lead to many unwanted troubles.
+
+No Default Passwords:
+Any system or software defaults should be changed immediately upon installation or setup.
