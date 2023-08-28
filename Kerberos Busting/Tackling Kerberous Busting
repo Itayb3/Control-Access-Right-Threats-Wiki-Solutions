@@ -1,0 +1,55 @@
+Tackling Kerberous Busting:
+
+1. Check the Encryption Method:
+The starting point for addressing Kerberos vulnerabilities is  first determining the encryption method.
+Checking the encryption types is a good way to identify whether older, more vulnerable encryption methods are in use.
+
+For this step, i suggest running the ps1 file included in this folder (KerberosBusting - Encryption Type detection)
+
+Estimated Cracking time for each encryption:
+
+DES (des-cbc-md5, des-cbc-crc): considered insecure. 
+ncrypted hashes can be cracked within hours, if not minutes.
+
+RC4 (rc4-hmac): considered insecure. 
+Kerberos ticket encrypted with this method using a weak password might be cracked within days or weeks with modern tools.
+
+AES (aes128-cts-hmac-sha1-96, aes256-cts-hmac-sha1-96): considered secure. 
+With a strong password, even the 128-bit version would likely take many years to centuries to crack with current technology. 
+
+AES-256 (aes256-cts-hmac-sha1-96): onsidered one of the most secure encryption methods available.
+Using the current technology, cracking AES-256 through brute force would take longer than the current age of the universe, even when using supercomputers.
+
+note - 
+if a ticket is encrypted using AES-256, the primary concern isn't the encryption's strength but rather the security of the ticket-granting process, the password's complexity used, and potential vulnerabilities or misconfigurations in the Kerberos setup.
+
+Triple DES (3DES): considered insecure. 
+With dedicated hardware, a 3DES key can potentially be brute-forced in less than a day due to the "meet-in-the-middle" attack that effectively reduces its key size in half. 
+
+Camellia: considered insecure. 
+For the 256-bit version, it would take several millennia with current technology, assuming a strong password.
+
+AES with Galois/Counter Mode (AES-GCM): considered secure when correctly implemented
+would be several millennia with current technology, assuming a strong password.
+
+There might be more encryption type methods im unaware of and therefore didnt include.
+
+
+2. Password Policies: 
+Often, the strength of the encryption method can be negated if weak passwords are in use. Ensure that the domain has strong password policies. 
+my suggestion for a secure password policy would be:
+
+Minimum Length: 
+
+At least 14 characters. The longer the password, the harder it is to crack through brute force.
+***there's a particular characteristic of Windows Active Directory that makes it so the length of the password is related to the encryption type.
+When a password exceeds 14 characters, Active Directory no longer stores the LM hash, leaving only the NTLM hash.
+This is a positive from a security perspective because NTLM  is significantly more secure.
+
+Complexity Requirements:
+  
+  Uppercase Letters: At least one uppercase letter (A-Z).
+  Lowercase Letters: At least one lowercase letter (a-z).
+  Numbers: At least one digit (0-9).
+  Special Characters: At least one special character (e.g., !, @, #, $, %, etc.).
+  Avoid Common Words: Passwords shouldn't contain easily guessable words or patterns.
