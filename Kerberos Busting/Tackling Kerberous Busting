@@ -4,7 +4,7 @@ Tackling Kerberous Busting:
 The starting point for addressing Kerberos vulnerabilities is  first determining the encryption method.
 Checking the encryption types is a good way to identify whether older, more vulnerable encryption methods are in use.
 
-For this step, i suggest running the ps1 file included in this folder (KerberosBusting - Encryption Type detection)
+For this step, i suggest running the "KerberosBusting - Encryption Type detection" powershell script in this folder.
 
 Estimated Cracking time for each encryption:
 
@@ -20,8 +20,8 @@ With a strong password, even the 128-bit version would likely take many years to
 AES-256 (aes256-cts-hmac-sha1-96): onsidered one of the most secure encryption methods available.
 Using the current technology, cracking AES-256 through brute force would take longer than the current age of the universe, even when using supercomputers.
 
-note - 
-if a ticket is encrypted using AES-256, the primary concern isn't the encryption's strength but rather the security of the ticket-granting process, the password's complexity used, and potential vulnerabilities or misconfigurations in the Kerberos setup.
+Note - 
+If a ticket is encrypted using AES-256, the primary concern isn't the encryption's strength but rather the security of the ticket-granting process, the password's complexity used, and potential vulnerabilities or misconfigurations in the Kerberos setup.
 
 Triple DES (3DES): considered insecure. 
 With dedicated hardware, a 3DES key can potentially be brute-forced in less than a day due to the "meet-in-the-middle" attack that effectively reduces its key size in half. 
@@ -30,14 +30,14 @@ Camellia: considered insecure.
 For the 256-bit version, it would take several millennia with current technology, assuming a strong password.
 
 AES with Galois/Counter Mode (AES-GCM): considered secure when correctly implemented
-would be several millennia with current technology, assuming a strong password.
+Would be several millennia with current technology, assuming a strong password.
 
 There might be more encryption type methods im unaware of and therefore didnt include.
 
 
 2. Password Policies: 
 Often, the strength of the encryption method can be negated if weak passwords are in use. Ensure that the domain has strong password policies. 
-my suggestion for a secure password policy would be:
+My suggestion for a secure password policy would be:
 
 Minimum Length: 
 
@@ -75,10 +75,25 @@ Any system or software defaults should be changed immediately upon installation 
 
 3. SPNS Targeting:
 Kerberoasting often targets Service Accounts because they often have high privileges and their passwords don't expire regularly.
-in order to combat this problem we will first need to understand about how many accounts were talking.
-this can range from a few to hundreds depending on the organization stracture and needs.
-for this step i suggest running the ps1 file included in this folder (Kerberos Busting - SPNs checking).
-this script will provide a list of all existing SPNs Accounts.
-after finding out with how many were dealing i suggest understanding which account belong to which service, and how to conduct password changes on regular basis without causing downtimes for that service.
+In order to combat this problem we will first need to understand about how many accounts were talking.
+This can range from a few to hundreds depending on the organization stracture and needs.
+For this step i suggest running the "Kerberos Busting - SPNs checking" powershell script in this folder
+This script will provide a list of all existing SPNs Accounts.
+After finding out with how many were dealing i suggest understanding which account belong to which service, and how to conduct password changes on regular basis without causing downtimes for that service.
 
-4.
+4. Ticket Renewal and Expiry:
+A big factor in Kerberos Busting is the length of the tgt validation.
+The longer a ticket (TGT, specifically) is valid, the more time an attacker has to crack it. 
+Therefore we should check the ticket renewal and expiry policies.
+For this step i suggest running the "Kerberos Busting - TGT Policy" powershell script in the folder.
+This script will provide you with the current tgt policy your domain is using.
+
+After some reasearch the i suggest:
+TGT Lifetime: Set to 10 hours or less.
+TGT Renewal Time: 7 days.
+
+Please note that the encryption type does effect the recommended time.
+A strong encryption will take longer to crack therefore can allow a more loose policy.
+And on the same note, theres a downside to shorter lifetimes.
+It can and will cause a reduced user experience due to frequent re-authentication.
+
