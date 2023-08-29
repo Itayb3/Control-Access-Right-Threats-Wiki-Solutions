@@ -8,6 +8,8 @@ Service accounts are associated with Service Principal Names (SPNs).
 Once a user has a valid Kerberos Ticket Granting Ticket (TGT), they can request service tickets for any SPN. These tickets are encrypted with the NTLM hash of the service account that runs the service related to the SPN.
 The Kerberoasting attack focuses on requesting these tickets and then trying to decrypt them offline to obtain the service account's plaintext password.
 
+
+
 Attack Mechanics:
 
 1.Attacker obtains a valid Kerberos TGT (this often requires no special privileges).
@@ -17,6 +19,8 @@ Attack Mechanics:
 3.These service tickets are encrypted with the service account's NTLM hash.
 
 4.The attacker exports these tickets and tries to crack them offline using brute-force or dictionary attacks.
+
+
 
 Defense & Mitigation:
 
@@ -40,15 +44,21 @@ Limit service account permissions. Avoid using high-privilege accounts for servi
 
 Use stronger encryption methods for Kerberos tickets
 
+
+
 Detection:
 
 Logs in Windows event IDs can be useful in detecting Kerberoasting.
 Monitoring for large numbers of TGS (Ticket Granting Service) requests (especially for unique SPNs) in a short time frame can be indicative of an attack.
+
+                                                                                                                                            
                                                                                                                                             
 Implications:
 
 If Kerberoasting is successful, attackers gain access to the plaintext password of the service account.
 This can lead to lateral movement within the network, escalation of privileges (if the service account has high privileges), and further compromise of network resources.
+
+
 
 Conclusion:
 
