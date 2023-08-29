@@ -72,3 +72,13 @@ Sharing accounts can lead to many unwanted troubles.
 
 No Default Passwords:
 Any system or software defaults should be changed immediately upon installation or setup.
+
+3. SPNS Targeting:
+Kerberoasting often targets Service Accounts because they often have high privileges and their passwords don't expire regularly.
+in order to combat this problem we will first need to understand about how many accounts were talking.
+this can range from a few to hundreds depending on the organization stracture and needs.
+for this step i suggest running the ps1 file included in this folder (Kerberos Busting - SPNs checking).
+this script will provide a list of all existing SPNs Accounts.
+after finding out with how many were dealing i suggest understanding which account belong to which service, and how to conduct password changes on regular basis without causing downtimes for that service.
+
+4.
