@@ -24,11 +24,11 @@ Attack Mechanics:
 
 Defense & Mitigation:
 
--Strong Passwords: Ensure that service account passwords are complex and lengthy to resist brute-force attacks.
--Regularly Rotate Passwords: Change the passwords for service accounts regularly.
--Monitor for Anomalies: Use monitoring solutions to detect abnormal Kerberos ticket requests. Multiple ticket requests in a short period can indicate an attack.
--Account Privileges: Limit service account permissions. Avoid using high-privilege accounts for services unless necessary.
--Ticket Encryption: Use stronger encryption methods for Kerberos tickets
+-Strong Passwords: Ensure that service account passwords are complex and lengthy to resist brute-force attacks.   
+-Regularly Rotate Passwords: Change the passwords for service accounts regularly.   
+-Monitor for Anomalies: Use monitoring solutions to detect abnormal Kerberos ticket requests. Multiple ticket requests in a short period can indicate an attack.   
+-Account Privileges: Limit service account permissions. Avoid using high-privilege accounts for services unless necessary.   
+-Ticket Encryption: Use stronger encryption methods for Kerberos tickets   
 
 
 
