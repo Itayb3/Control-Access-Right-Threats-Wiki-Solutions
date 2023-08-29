@@ -12,13 +12,10 @@ The Kerberoasting attack focuses on requesting these tickets and then trying to 
 
 Attack Mechanics:
 
-1.Attacker obtains a valid Kerberos TGT (this often requires no special privileges).
-
-2.Attacker requests service tickets for all available SPNs.
-
-3.These service tickets are encrypted with the service account's NTLM hash.
-
-4.The attacker exports these tickets and tries to crack them offline using brute-force or dictionary attacks.
+1.Attacker obtains a valid Kerberos TGT (this often requires no special privileges).   
+2.Attacker requests service tickets for all available SPNs.   
+3.These service tickets are encrypted with the service account's NTLM hash.   
+4.The attacker exports these tickets and tries to crack them offline using brute-force or dictionary attacks.   
 
 
 
