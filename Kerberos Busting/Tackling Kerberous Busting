@@ -1,4 +1,8 @@
 Tackling Kerberous Busting:
+Heres a short guide on how to tackle Kerberous Busting
+**Please note that 
+A.im not a professional and everything here should be verified :)
+B.this guide aim to cover the vulnerabilitys this attack uses in order to prevent it, and has nothing to do with live threat or monitoring.
 
 1. Check the Encryption Method:
 The starting point for addressing Kerberos vulnerabilities is  first determining the encryption method.
