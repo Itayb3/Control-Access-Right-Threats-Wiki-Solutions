@@ -1,0 +1,50 @@
+1. Prevention   
+a. Limit and Secure Privileges:   
+  Account Management: Minimize the number of accounts with elevated privileges.   
+  Strong Passwords: Use robust, unique passwords for all administrative accounts.   
+  Multi-factor Authentication: Implement MFA for critical system access.   
+
+  For this step i would recommend using the powershell script DCShadow Attack.ps1 in this folder.
+  Executing this script with administrator privileges will return a csv file that includes a list of every
+  Account that posses the required permissions to execute this attack.
+  After running it you should go over the list and remove unwanted members.
+  The next step would be to check for password strength & setting a Multi-Factor auth for thos accounts in order to ensure maximum security 
+
+
+b. Network Segmentation:   
+  Isolate Critical Assets: Keep domain controllers in secure network segments.   
+  Restricted Communication: Limit inter-segment communication to necessary traffic only.   
+
+c. Regular Patching:   
+  Updates: Regularly patch all systems, with a focus on Domain Controllers.   
+
+2. Detection   
+a. Monitor Active Directory:   
+  ATA: Utilize tools like Microsoft Advanced Threat Analytics (ATA).   
+  Monitor Registrations: Be alert to unexpected domain controller registrations.   
+b. Use SIEM Solutions:   
+  Log Analysis: Implement SIEM solutions to aggregate and analyze system logs.   
+  Alerts: Set system alerts for unusual replication activities.   
+c. Regularly Review Permissions:   
+  Audit: Periodically audit AD permissions.   
+  Alert on Changes: Monitor for unexpected permission changes.   
+
+3. Response   
+a. Incident Response Plan:   
+  Planning: Have a pre-defined plan for suspicious activities.   
+b. Investigate and Remediate:   
+  Incident Review: Upon receiving an alert, follow your incident response plan.   
+  Identify and Revert: If DCShadow is detected, identify the rogue entity, revert changes, and remove rogue components.   
+c. Improve and Update:   
+  Post-Incident Analysis: Post-incident, review and understand the attack vector.   
+  Update Mechanisms: Enhance prevention and detection based on new insights.   
+
+4. Continuous Improvement   
+  a. Stay Updated:   
+    Continuous Learning: Stay informed about emerging threats and best practices.   
+  b. Continuous Monitoring:   
+    Environment Checks: Regularly inspect the environment for potential threats or vulnerabilities.   
+
+5. Backup and Recovery   
+  a. Regular Backups:   
+    Data Protection: Regularly backup Active Directory and vital systems.   
