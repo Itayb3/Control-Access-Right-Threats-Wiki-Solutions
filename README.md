@@ -7,13 +7,13 @@ in Active Directory (AD) is a pivotal aspect that cyber attackers often exploit 
 
 The threats i choose to study were:
 
-1.Kerberoasting
+1.Kerberoasting - Finished
 
 2.Golden Ticket Attack
 
 3.DCSync Attack - Finished
 
-4.DCShadow Attack
+4.DCShadow Attack - Finished
 
 5.Silver Ticket Attack
 
