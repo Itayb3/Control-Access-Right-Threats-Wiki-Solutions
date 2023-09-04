@@ -9,7 +9,7 @@ The threats i choose to study were:
 
 1.Kerberoasting - Finished
 
-2.Golden Ticket Attack
+2.Golden Ticket Attack - Finished
 
 3.DCSync Attack - Finished
 
